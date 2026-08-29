@@ -105,6 +105,8 @@ thead th{
 }
 tbody tr:hover{background:rgba(76,201,240,.04)}
 td .name{font-weight:600;color:var(--text)}
+table.profiles{min-width:0}
+table.profiles th,table.profiles td{white-space:normal}
 td .jc{font-weight:700;color:var(--accent)}
 td .them{color:var(--muted)}
 .save{color:var(--green);font-weight:700}
