@@ -1,0 +1,48 @@
+# JC Lighting Collection
+
+Open-source reinterpretations of every collection in **Peter Bristol's Visual Comfort lineup** — rebuilt with better specs, better materials, and honest small-batch pricing. Smart by default.
+
+**Site:** https://jerbotclaw-max.github.io/jc-lighting/
+
+## The lineup (12 collections)
+
+| Their collection | Their retail* | JC edition | Est. DIY BOM | Est. kit |
+|---|---|---|---|---|
+| Bend (Signature) | $499–$899 | JC Bend | $48–$96 | $119–$239 |
+| Dot (Signature) | $869–$2,069 | JC Dot | $54–$98 | $129–$249 |
+| Overture (Signature) | $749–$5,299 | JC Overture | $78–$224 | $189–$549 |
+| Quarter Sphere (Signature) | $999 | JC Quarter Sphere | $54 | $129 |
+| Racetrack (Signature) | $2,199–$3,399 | JC Racetrack | $98–$176 | $229–$429 |
+| Helium (Modern) | $479–$6,759 | JC Helium | $56–$240 | $139–$599 |
+| Cymbal (Modern) | $1,579–$2,259 | JC Cymbal | $76 | $179 |
+| Interlace (Signature) | $1,419 | JC Interlace | $66 | $159 |
+| 60-40 (Signature) | $2,199 | JC Sixty-Forty | $94 | $229 |
+| Stance (Signature) | $619–$1,199 | JC Stance | $56 | $139 |
+| Trace (Signature) | ≈$2,500–$3,500 est. | JC Trace | $142 | $349 |
+| Shielded (Signature) | ≈$399 est. | JC Shielded | $32 | $89 |
+
+\* Dealer listings (Capitol Lighting, Lumens, Foundry Lighting, Lighting New York), Aug 2026. All JC numbers are estimates, not quotes.
+
+## Shared platform contract
+
+- CRI ≥ 95 LEDs (R9 > 50), tunable white 2700–6500 K, RGBW option on scene fixtures
+- 100–240 V drivers, >25 kHz PWM, <1% flicker, PF > 0.9
+- 50,000 h LED life with thermal derating; UGR < 19 diffusers
+- ESP32-C3 (single-body mains fixtures, Matter-over-WiFi) or nRF52840 (multi-body bus fixtures — Helium, Trace; BLE-first, Matter-over-Thread option)
+- BLE provisioning, Matter, Home Assistant, local REST/mDNS API
+- USB-C service port on every unit; replaceable LED boards throughout
+- Solid brass / machined & extruded aluminum / cast stone + real glass vs original plated steel
+
+## JC Light OS
+
+One Apache-2.0 firmware for the whole collection; per-fixture profiles are device-tree + calibration blobs. See `lightos.html` on the site.
+
+## Licensing
+
+- Firmware: Apache-2.0
+- Hardware (KiCad, STL/STEP, when released): CERN-OHL-H
+- Documentation/site: CC-BY-SA-4.0
+
+## Disclaimer
+
+Fan-made open reinterpretations of publicly retailed designs. **Not affiliated with, endorsed by, or licensed by Visual Comfort & Co. or Peter Bristol.** No proprietary CAD, drawings, renderings, or photography used — all descriptions, specifications, estimates, and artwork are original. Prices/specs are estimates; verify before you build.

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The JC Lighting Collection — Peter Bristol's Visual Comfort collection, rebuilt open</title>
+<meta name="description" content="Open-source reinterpretations of every light in Peter Bristol's Visual Comfort collection. Better specs, better materials, less money, smart by default. KiCad, STL/STEP, Apache-2.0 firmware, CERN-OHL-H hardware.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%A1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">JC <span>Lighting</span></div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#lineup">The Lineup</a>
+      <a href="lightos.html">JC Light OS</a>
+      <a href="https://github.com/jerbotclaw-max/jc-lighting">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="hero-inner">
+    <div class="hero-kicker">● Open-source hardware · fan-made reinterpretations</div>
+    <h1>The JC Lighting Collection<br><span class="grad">Every light, rebuilt open.</span></h1>
+    <p class="hero-sub">Every collection in <strong>Peter Bristol's Visual Comfort lineup</strong> — Bend, Dot, Overture, Quarter Sphere, Racetrack, Helium, Cymbal, Interlace, 60-40, Stance, Trace, Shielded — reinterpreted as open hardware. <strong>Better specs. Better materials. Less money. Smart by default.</strong></p>
+    <div class="stat-grid">
+      <div class="stat"><b>12</b><span>collections rebuilt</span></div>
+      <div class="stat"><b>50+</b><span>retail SKUs covered</span></div>
+      <div class="stat"><b>CRI ≥95</b><span>R9 &gt; 50, SunLike-class</span></div>
+      <div class="stat"><b>2700–6500K</b><span>tunable white + RGBW opt.</span></div>
+      <div class="stat"><b>50,000 h</b><span>rated LED life</span></div>
+      <div class="stat"><b>~85%</b><span>below retail (typ. kit)</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="overview">
+  <div class="kicker">Comparison</div>
+  <h2>Their price vs. ours</h2>
+  <p class="section-sub">Retail prices from authorized-dealer listings (Capitol Lighting, Lumens, Foundry Lighting, Lighting New York; Aug 2026). JC BOM = parts cost at ~100-unit quantities, no labor. Kit price = BOM + small-batch overhead, packaging, and hardware kit — no brand premium. All JC numbers are <b>honest estimates</b>, not quotes.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Their collection</th><th>Form factor</th><th>Their retail*</th><th>JC edition</th><th>Est. DIY BOM</th><th>Est. kit</th><th>Typ. saving</th><th>SoC</th></tr></thead>
+    <tbody>
+      <tr><td><span class="name">Bend</span> <span class="them">(Signature)</span></td><td>LED tube sconces 8/12/20", Square, Tall</td><td class="them">$499–$899</td><td><span class="jc">JC Bend</span></td><td>$48–$96</td><td>$119–$239</td><td class="save">~76%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">Dot</span> <span class="them">(Signature)</span></td><td>Flushmounts 13/16/22", caged, pendants, swing lamp</td><td class="them">$869–$2,069</td><td><span class="jc">JC Dot</span></td><td>$54–$98</td><td>$129–$249</td><td class="save">~83%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">Overture</span> <span class="them">(Signature)</span></td><td>Ring chandeliers S/M/XL, arm chandeliers, linear, sconce</td><td class="them">$749–$5,299</td><td><span class="jc">JC Overture</span></td><td>$78–$224</td><td>$189–$549</td><td class="save">~89%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">Quarter Sphere</span> <span class="them">(Signature)</span></td><td>Quarter-dome uplight sconce, 10"</td><td class="them">$999</td><td><span class="jc">JC Quarter Sphere</span></td><td>$54</td><td>$129</td><td class="save">~87%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">Racetrack</span> <span class="them">(Signature)</span></td><td>Oval ring chandeliers 28/38/48"</td><td class="them">$2,199–$3,399</td><td><span class="jc">JC Racetrack</span></td><td>$98–$176</td><td>$229–$429</td><td class="save">~87%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">Helium</span> <span class="them">(Modern)</span></td><td>Glass-globe cluster chandeliers 18–53"</td><td class="them">$479–$6,759</td><td><span class="jc">JC Helium</span></td><td>$56–$240</td><td>$139–$599</td><td class="save">~87%</td><td>nRF52840</td></tr>
+      <tr><td><span class="name">Cymbal</span> <span class="them">(Modern)</span></td><td>Shallow dish sconce / pendant, 21"</td><td class="them">$1,579–$2,259</td><td><span class="jc">JC Cymbal</span></td><td>$76</td><td>$179</td><td class="save">~89%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">Interlace</span> <span class="them">(Signature)</span></td><td>Interlocked-ring mini chandelier, 9"</td><td class="them">$1,419</td><td><span class="jc">JC Interlace</span></td><td>$66</td><td>$159</td><td class="save">~89%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">60-40</span> <span class="them">(Signature)</span></td><td>Split-sphere pendant, 25"</td><td class="them">$2,199</td><td><span class="jc">JC Sixty-Forty</span></td><td>$94</td><td>$229</td><td class="save">~90%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">Stance</span> <span class="them">(Signature)</span></td><td>Cylinder pendant, 16"</td><td class="them">$619–$1,199</td><td><span class="jc">JC Stance</span></td><td>$56</td><td>$139</td><td class="save">~88%</td><td>ESP32-C3</td></tr>
+      <tr><td><span class="name">Trace</span> <span class="them">(Signature)</span></td><td>Minimal linear chandelier 60", sconce</td><td class="them">≈$2,500–$3,500 est.</td><td><span class="jc">JC Trace</span></td><td>$142</td><td>$349</td><td class="save">~88%</td><td>nRF52840</td></tr>
+      <tr><td><span class="name">Shielded</span> <span class="them">(Signature)</span></td><td>Shielded ADA wall sconce, 3.7"</td><td class="them">≈$399 est.</td><td><span class="jc">JC Shielded</span></td><td>$32</td><td>$89</td><td class="save">~78%</td><td>ESP32-C3</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">* Their prices observed Aug 2026; sale prices often lower, list often higher. Trace and Shielded retail estimated — dealer listings were inconsistent at research time. No proprietary CAD, drawings, or imagery from Visual Comfort was used anywhere on this site; all descriptions and artwork are our own.</p>
+</section>
+
+<section id="lineup">
+  <div class="kicker">The Lineup</div>
+  <h2>Twelve fixtures, one open platform</h2>
+  <p class="section-sub">Every JC edition ships with the same electronics contract: CRI ≥95 LEDs, tunable white 2700–6500K (RGBW where noted), flicker-free &gt;25 kHz PWM dimming from a 100–240V driver, Matter over WiFi (or Thread where noted), BLE provisioning, USB-C service port, and a replaceable LED board. Firmware is one build — <a href="lightos.html">JC Light OS</a> — with a per-fixture profile.</p>
+
+  <!-- ============ BEND ============ -->
+  <article class="fixture" id="bend">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="55" y1="212" x2="185" y2="212" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <rect x="103" y="200" width="34" height="12" rx="2" stroke-opacity=".9"/>
+        <circle cx="120" cy="118" r="72"/>
+        <path d="M 63 85 A 72 72 0 0 1 158 56" stroke="#a78bfa" stroke-opacity=".65" stroke-width="5"/>
+        <line x1="120" y1="190" x2="120" y2="200"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Bend <span class="fixture-orig">after "Bend" · Visual Comfort Signature · sconce family 8/12/20", Square, Tall</span></h3>
+        <div class="price-row"><span class="price-them">$499–$899</span><span class="arrow">→</span><span class="price-jc">kit from $119</span></div>
+      </div>
+      <p class="fixture-desc">A continuous tube of light bent into a ring, square, or tall loop. The original is a bent steel tube with plated finishes; the JC edition bends <b>structural 6063 aluminum in one piece</b> and caps it in machined solid brass.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Extruded 6063 aluminum tube</b> (bent post-anodize) vs their plated steel — no chipping, real heat sinking</li>
+            <li><b>Machined solid brass endcaps</b> vs stamped plated caps</li>
+            <li>Opal silicone diffuser sleeve, <b>UGR &lt; 19</b></li>
+            <li>Tool-free canopy; two #8 screws to mount</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 — single-body mains fixture; WiFi + BLE, Matter-over-WiFi, ~$1</li>
+            <li><b>LED:</b> tunable-white COB strip, CRI 97, 2700–6500K</li>
+            <li><b>Output:</b> 450 lm (8") / 800 lm (12") / 1,400 lm (20")</li>
+            <li><b>Driver:</b> 100–240V, &gt;25 kHz PWM, &lt;1% flicker</li>
+            <li>USB-C service, replaceable LED strip module</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Bend 8"</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>Bent 6063 aluminum tube, anodized</td><td>$9.50</td></tr>
+          <tr><td>Tunable COB LED strip (CRI 97), 90 cm</td><td>$8.20</td></tr>
+          <tr><td>Opal silicone diffuser sleeve</td><td>$3.10</td></tr>
+          <tr><td>ESP32-C3 module + 100–240V LED driver</td><td>$11.40</td></tr>
+          <tr><td>Machined brass endcaps, canopy, hardware</td><td>$9.80</td></tr>
+          <tr><td>PCBs, connectors, wire, fasteners</td><td>$6.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$48 / $119</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ DOT ============ -->
+  <article class="fixture" id="dot">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="40" y1="46" x2="200" y2="46" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="70" y1="46" x2="70" y2="58" stroke-opacity=".6"/><line x1="170" y1="46" x2="170" y2="58" stroke-opacity=".6"/>
+        <path d="M 70 58 L 70 62 A 50 44 0 0 0 170 62 L 170 58"/>
+        <line x1="70" y1="62" x2="170" y2="62" stroke-opacity=".45"/>
+        <circle cx="120" cy="92" r="7" fill="#4cc9f0" stroke="none"/>
+        <path d="M 96 106 A 30 20 0 0 1 144 106" stroke="#a78bfa" stroke-opacity=".55" stroke-width="5"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Dot <span class="fixture-orig">after "Dot" · Visual Comfort Signature · flushmounts 13/16/22", caged, pendants, swing lamp</span></h3>
+        <div class="price-row"><span class="price-them">$869–$2,069</span><span class="arrow">→</span><span class="price-jc">kit from $129</span></div>
+      </div>
+      <p class="fixture-desc">A shallow dome with a single glowing "dot" at its heart. JC keeps the gesture and swaps the cheap bits: spun-aluminum dome, a <b>replaceable 40 mm LED puck</b> (the part that dies first on the original), and a <b>cast-stone counterweight</b> option on the swing lamp where the original uses weighted plastic.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Spun aluminum dome</b>, anodized — vs their stamped steel</li>
+            <li><b>Replaceable LED puck</b> on a pogo-pin carrier — anti-obsolescence</li>
+            <li>Opal PMMA lens ring, <b>UGR &lt; 19</b></li>
+            <li>Caged variant: bent-wire guard, brass knurled trim</li>
+            <li>Swing lamp: <b>cast stone counterweight</b>, friction-damped arm</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> 40 mm puck, CRI ≥95, 2700–6500K; RGBW optional on 16/22"</li>
+            <li><b>Output:</b> 1,200 / 1,800 / 2,600 lm by size</li>
+            <li><b>Driver:</b> 100–240V, &gt;25 kHz PWM, &lt;1% flicker</li>
+            <li>USB-C service; puck swap = 4 magnets, no tools</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Dot 13" flushmount</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>Spun aluminum dome, anodized</td><td>$14.00</td></tr>
+          <tr><td>40 mm replaceable LED puck (CRI 95, tunable)</td><td>$9.00</td></tr>
+          <tr><td>Opal PMMA lens ring (UGR &lt; 19)</td><td>$6.00</td></tr>
+          <tr><td>ESP32-C3 + 100–240V flicker-free driver</td><td>$12.00</td></tr>
+          <tr><td>Brass knurled trim, puck carrier, hardware</td><td>$11.00</td></tr>
+          <tr><td>PCB, connectors, wire</td><td>$7.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$59 / $149</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ OVERTURE ============ -->
+  <article class="fixture" id="overture">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="40" y1="28" x2="200" y2="28" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="120" y1="28" x2="120" y2="66"/>
+        <ellipse cx="120" cy="138" rx="86" ry="40"/>
+        <rect x="76" y="108" width="11" height="30" rx="5.5" stroke="#a78bfa" stroke-opacity=".7"/>
+        <rect x="108" y="122" width="11" height="30" rx="5.5" stroke="#a78bfa" stroke-opacity=".7"/>
+        <rect x="140" y="112" width="11" height="30" rx="5.5" stroke="#a78bfa" stroke-opacity=".7"/>
+        <line x1="81" y1="108" x2="81" y2="98" stroke-opacity=".6"/><line x1="113" y1="122" x2="113" y2="112" stroke-opacity=".6"/><line x1="145" y1="112" x2="145" y2="102" stroke-opacity=".6"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Overture <span class="fixture-orig">after "Overture" · Visual Comfort Signature · ring chandeliers S/M/XL, arm chandeliers, linear, sconce</span></h3>
+        <div class="price-row"><span class="price-them">$749–$5,299</span><span class="arrow">→</span><span class="price-jc">kit from $189</span></div>
+      </div>
+      <p class="fixture-desc">Telescoping arms carry glass cylinders off a luminous ring — choreography you can re-hang. Their XL ring lists at $4,999. The JC version rolls the ring from <b>solid brass tube</b> (not steel), blows the cylinders in borosilicate, and puts each LED stick on a <b>tool-free collet</b> so a failed light is a 10-second swap.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Rolled solid brass ring</b> — their base metal is plated steel</li>
+            <li><b>Borosilicate glass cylinders</b>, 6–12×, on brass collets — tool-free</li>
+            <li>Telescoping arms with <b>calibrated detents</b> (re-aim without slipping)</li>
+            <li>Ships flat: ring in two halves, hidden splice collar</li>
+            <li>Up/down-light field-reversible like the original</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> 6–12 replaceable sticks, CRI ≥95, 2700–6500K; RGBW optional</li>
+            <li><b>Output:</b> 950 lm (S) → 2,500 lm (XL ring, matches their 35 W spec)</li>
+            <li><b>Driver:</b> 100–240V, 45–90 W, &gt;25 kHz PWM</li>
+            <li>USB-C service; per-stick diagnostics in firmware</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Overture Ring M (28.75")</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>Rolled solid brass ring tube, 28.75" OD</td><td>$38.00</td></tr>
+          <tr><td>6× hand-blown borosilicate cylinders</td><td>$42.00</td></tr>
+          <tr><td>6× replaceable LED sticks (CRI ≥95, tunable)</td><td>$30.00</td></tr>
+          <tr><td>ESP32-C3 + 100–240V driver, 45 W</td><td>$14.00</td></tr>
+          <tr><td>Brass collets, telescoping arms, canopy</td><td>$26.00</td></tr>
+          <tr><td>PCB, connectors, wire, hardware</td><td>$12.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$162 / $389</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ QUARTER SPHERE ============ -->
+  <article class="fixture" id="quarter-sphere">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="58" y1="34" x2="58" y2="206" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <path d="M 58 158 L 58 96 A 62 62 0 0 1 120 158 Z"/>
+        <line x1="58" y1="158" x2="120" y2="158" stroke-opacity=".45"/>
+        <line x1="76" y1="82" x2="62" y2="60" stroke="#a78bfa" stroke-opacity=".6" stroke-width="4"/>
+        <line x1="100" y1="90" x2="94" y2="64" stroke="#a78bfa" stroke-opacity=".45" stroke-width="4"/>
+        <line x1="118" y1="106" x2="122" y2="82" stroke="#a78bfa" stroke-opacity=".35" stroke-width="4"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Quarter Sphere <span class="fixture-orig">after "Quarter Sphere" · Visual Comfort Signature · 10" uplight sconce</span></h3>
+        <div class="price-row"><span class="price-them">$999</span><span class="arrow">→</span><span class="price-jc">kit $129</span></div>
+      </div>
+      <p class="fixture-desc">An eighth of a sphere of glowing glass, throwing soft light up the wall. JC casts the dome in <b>opal glass</b> and seats it in a <b>machined brass cradle</b> instead of a bent sheet-metal pocket — the glass lifts out for cleaning or swap without touching a wire.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Cast opal glass dome</b>, uniform wall — no visible LED hotspots</li>
+            <li><b>Machined brass cradle + wall plate</b> vs stamped pocket</li>
+            <li>Dome lifts off on rare-earth pins — <b>cleanable, replaceable</b></li>
+            <li>ADA-compliant 4" profile like the original</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> uplight board, CRI ≥95, 2700–6500K</li>
+            <li><b>Output:</b> 600 lm uplight, wall-wash tuned</li>
+            <li><b>Driver:</b> 100–240V, &gt;25 kHz PWM, &lt;1% flicker</li>
+            <li>USB-C service, replaceable LED board</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Quarter Sphere</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>Cast opal glass quarter dome</td><td>$18.00</td></tr>
+          <tr><td>Machined brass cradle + wall plate</td><td>$12.00</td></tr>
+          <tr><td>LED board (CRI ≥95, tunable, 600 lm)</td><td>$8.00</td></tr>
+          <tr><td>ESP32-C3 + 100–240V driver</td><td>$12.00</td></tr>
+          <tr><td>Pins, PCB, hardware</td><td>$4.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$54 / $129</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ RACETRACK ============ -->
+  <article class="fixture" id="racetrack">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="40" y1="26" x2="200" y2="26" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="92" y1="26" x2="92" y2="82" stroke-opacity=".6"/><line x1="148" y1="26" x2="148" y2="82" stroke-opacity=".6"/>
+        <rect x="38" y="82" width="164" height="58" rx="29"/>
+        <line x1="76" y1="152" x2="76" y2="164" stroke="#a78bfa" stroke-opacity=".55" stroke-width="4"/>
+        <line x1="120" y1="152" x2="120" y2="170" stroke="#a78bfa" stroke-opacity=".55" stroke-width="4"/>
+        <line x1="164" y1="152" x2="164" y2="164" stroke="#a78bfa" stroke-opacity=".55" stroke-width="4"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Racetrack <span class="fixture-orig">after "Racetrack" · Visual Comfort Signature · oval ring chandeliers 28/38/48"</span></h3>
+        <div class="price-row"><span class="price-them">$2,199–$3,399</span><span class="arrow">→</span><span class="price-jc">kit from $229</span></div>
+      </div>
+      <p class="fixture-desc">A stadium-shaped ring of downlight over the table. JC rolls its oval from aluminum tube with a <b>true racetrack profile</b>, hangs it on <b>aircraft cable with zero-sag levelers</b>, and ships it in two halves so it fits in a hatchback — the original ships freight.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Tube-rolled aluminum ring</b>, powder-coated — vs roll-formed steel seam</li>
+            <li><b>Aircraft cable + zero-sag levelers</b> — stays level forever, 5-minute install</li>
+            <li>Two-half split with hidden splice — <b>ships flat</b></li>
+            <li>Opal downlight lens, <b>UGR &lt; 19</b>, no LED imaging on the table</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> continuous COB array, CRI ≥95, 2700–6500K</li>
+            <li><b>Output:</b> 1,800 (28") / 3,000 (38") / 4,200 lm (48")</li>
+            <li><b>Driver:</b> 100–240V, 60 W, &gt;25 kHz PWM</li>
+            <li>USB-C service, replaceable LED board</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Racetrack 38"</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>Tube-rolled aluminum oval ring, powder coat</td><td>$42.00</td></tr>
+          <tr><td>COB LED array (CRI ≥95, 3,000 lm) + opal lens</td><td>$38.00</td></tr>
+          <tr><td>ESP32-C3 + 100–240V driver, 60 W</td><td>$15.00</td></tr>
+          <tr><td>Aircraft cable, levelers, canopy</td><td>$18.00</td></tr>
+          <tr><td>Splice collar, PCB, hardware</td><td>$11.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$124 / $299</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ HELIUM ============ -->
+  <article class="fixture" id="helium">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="36" y1="26" x2="204" y2="26" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="46" y1="52" x2="194" y2="52"/>
+        <line x1="70" y1="52" x2="70" y2="76" stroke-opacity=".6"/>
+        <line x1="103" y1="52" x2="103" y2="92" stroke-opacity=".6"/>
+        <line x1="142" y1="52" x2="142" y2="104" stroke-opacity=".6"/>
+        <line x1="180" y1="52" x2="180" y2="80" stroke-opacity=".6"/>
+        <circle cx="70" cy="86" r="10"/>
+        <circle cx="103" cy="106" r="14"/>
+        <circle cx="142" cy="122" r="18" stroke="#a78bfa" stroke-opacity=".75"/>
+        <circle cx="180" cy="90" r="12"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Helium <span class="fixture-orig">after "Helium" · Visual Comfort Modern · glass-globe cluster chandeliers 18–53"</span></h3>
+        <div class="price-row"><span class="price-them">$479–$6,759</span><span class="arrow">→</span><span class="price-jc">kit from $139</span></div>
+      </div>
+      <p class="fixture-desc">Mouth-blown glass bubbles floating on stems at staggered heights. JC runs the whole cluster off a <b>48V DC bus with magnetic globe mounts</b>: every globe is a pop-off consumable, repositionable in seconds, wired with no connectors to crimp.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>48V low-voltage bus</b> — safe touch, thin brass stems, no in-canopy boxes</li>
+            <li><b>Magnetic globe mounts</b> — reposition/remove globes tool-free</li>
+            <li>Hand-blown opal globes in 4 sizes, individually replaceable</li>
+            <li>Per-globe dim scenes (each addressable, not bank-wired like the original)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> nRF52840 — multi-body fixture on a daisy-chained bus; BLE-first, ultra-low standby, Matter-over-Thread option</li>
+            <li><b>LED:</b> per-globe pucks, CRI ≥95, 2700–6500K; RGBW optional</li>
+            <li><b>Output:</b> 700 lm (18") → 5,200 lm (53")</li>
+            <li><b>PSU:</b> 100–240V → 48V DC, &gt;25 kHz PWM</li>
+            <li>USB-C service on canopy + per-bus segment fusing</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Helium 53" (7 globes)</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>7× hand-blown opal glass globes</td><td>$98.00</td></tr>
+          <tr><td>48V DC bus + magnetic globe mounts</td><td>$34.00</td></tr>
+          <tr><td>7× replaceable LED pucks (CRI ≥95, tunable)</td><td>$42.00</td></tr>
+          <tr><td>nRF52840 controller + 100–240V PSU</td><td>$18.00</td></tr>
+          <tr><td>Brass stems, frame, canopy</td><td>$34.00</td></tr>
+          <tr><td>PCB, connectors, hardware</td><td>$14.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$240 / $599</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ CYMBAL ============ -->
+  <article class="fixture" id="cymbal">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="36" y1="26" x2="204" y2="26" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="120" y1="26" x2="120" y2="64"/>
+        <path d="M 42 96 A 78 34 0 0 0 198 96"/>
+        <line x1="42" y1="96" x2="198" y2="96" stroke-opacity=".5"/>
+        <circle cx="120" cy="106" r="6" fill="#4cc9f0" stroke="none"/>
+        <line x1="96" y1="140" x2="96" y2="158" stroke="#a78bfa" stroke-opacity=".5" stroke-width="4"/>
+        <line x1="120" y1="144" x2="120" y2="168" stroke="#a78bfa" stroke-opacity=".5" stroke-width="4"/>
+        <line x1="144" y1="140" x2="144" y2="158" stroke="#a78bfa" stroke-opacity=".5" stroke-width="4"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Cymbal <span class="fixture-orig">after "Cymbal" · Visual Comfort Modern · shallow dish sconce / pendant, 21"</span></h3>
+        <div class="price-row"><span class="price-them">$1,579–$2,259</span><span class="arrow">→</span><span class="price-jc">kit $179</span></div>
+      </div>
+      <p class="fixture-desc">A shallow brushed dish that reads as pure geometry until it's on. JC deep-draws the dish in <b>aluminum with a real brushed finish</b> (hammered texture optional) — the original's brushed look is a plating that shows every fingerprint — and lights it with a single replaceable COB ring.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Deep-drawn aluminum, mechanically brushed</b> — not plated steel</li>
+            <li>Optional <b>hammered texture</b> for sparkle-free diffusion</li>
+            <li>Opal PMMA disc, <b>UGR &lt; 19</b></li>
+            <li>Sconce and pendant share one drawing — buy once, re-mount</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> COB ring, CRI ≥95, 2700–6500K</li>
+            <li><b>Output:</b> 2,200 lm (dish ~21")</li>
+            <li><b>Driver:</b> 100–240V, 30 W, &gt;25 kHz PWM</li>
+            <li>USB-C service, replaceable LED ring</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Cymbal 21"</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>Deep-drawn aluminum dish, brushed</td><td>$26.00</td></tr>
+          <tr><td>COB LED ring (CRI ≥95, 2,200 lm)</td><td>$18.00</td></tr>
+          <tr><td>Opal PMMA diffuser disc</td><td>$9.00</td></tr>
+          <tr><td>ESP32-C3 + 100–240V driver, 30 W</td><td>$13.00</td></tr>
+          <tr><td>Stem, canopy, hardware</td><td>$10.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$76 / $179</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ INTERLACE ============ -->
+  <article class="fixture" id="interlace">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="36" y1="26" x2="204" y2="26" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="120" y1="26" x2="120" y2="74"/>
+        <circle cx="97" cy="126" r="42"/>
+        <circle cx="143" cy="126" r="42" stroke-opacity=".8"/>
+        <circle cx="120" cy="164" r="42" stroke="#a78bfa" stroke-opacity=".7"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Interlace <span class="fixture-orig">after "Interlace" · Visual Comfort Signature · interlocked-ring mini chandelier, 9"</span></h3>
+        <div class="price-row"><span class="price-them">$1,419</span><span class="arrow">→</span><span class="price-jc">kit $159</span></div>
+      </div>
+      <p class="fixture-desc">Three rings woven through each other into a knot of light. JC rolls the rings in <b>solid brass</b> and joins them with <b>machined intersection clamps</b> so the weave is a real mechanical joint, not a weld you can't unmake — each ring can be re-lamped independently.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Solid brass rings</b>, rolled and joined — vs plated steel weldments</li>
+            <li><b>Machined clamps at every crossing</b> — serviceable, re-weavable</li>
+            <li>Each ring independently dimmable / sceneable</li>
+            <li>Ships knocked down in one 12" box</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> 3× COB strips, CRI ≥95, 2700–6500K</li>
+            <li><b>Output:</b> 900 lm total</li>
+            <li><b>Driver:</b> 100–240V, 20 W, &gt;25 kHz PWM</li>
+            <li>USB-C service, per-ring connectors</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Interlace 9"</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>3× rolled solid brass rings</td><td>$22.00</td></tr>
+          <tr><td>3× COB LED strips (CRI ≥95, tunable)</td><td>$14.00</td></tr>
+          <tr><td>Machined intersection clamps</td><td>$8.00</td></tr>
+          <tr><td>ESP32-C3 + 100–240V driver, 20 W</td><td>$12.00</td></tr>
+          <tr><td>Canopy, connectors, hardware</td><td>$10.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$66 / $159</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ SIXTY-FORTY ============ -->
+  <article class="fixture" id="sixty-forty">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="36" y1="26" x2="204" y2="26" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="120" y1="26" x2="120" y2="72"/>
+        <path d="M 61.7 112 A 62 62 0 0 1 178.3 112 Z" fill="rgba(76,201,240,.08)"/>
+        <circle cx="120" cy="138" r="62"/>
+        <line x1="60" y1="112" x2="180" y2="112" stroke="#a78bfa" stroke-opacity=".8"/>
+        <line x1="86" y1="112" x2="86" y2="118" stroke-opacity=".6"/><line x1="120" y1="112" x2="120" y2="118" stroke-opacity=".6"/><line x1="154" y1="112" x2="154" y2="118" stroke-opacity=".6"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Sixty-Forty <span class="fixture-orig">after "60-40" · Visual Comfort Signature · split-sphere pendant, 25"</span></h3>
+        <div class="price-row"><span class="price-them">$2,199</span><span class="arrow">→</span><span class="price-jc">kit $229</span></div>
+      </div>
+      <p class="fixture-desc">A sphere split 60/40, the small cap cocked against the big bowl. JC spins both halves in aluminum and joins them with <b>magnetic seam clamps</b> — the proportion is adjustable at install (lock anywhere from 50/50 to 70/30) while the original's split is fixed at the factory.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Spun aluminum halves</b>, anodized — vs stamped + plated steel</li>
+            <li><b>Magnetic seam clamps</b>: adjustable 50/50 → 70/30 split</li>
+            <li>Opal seam diffuser glows along the cut line</li>
+            <li>Downlight in the bowl + uplight option in the cap</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> bowl ring + cap puck, CRI ≥95, 2700–6500K; RGBW optional</li>
+            <li><b>Output:</b> 1,600 lm (bowl 1,200 + cap 400)</li>
+            <li><b>Driver:</b> 100–240V, 30 W, &gt;25 kHz PWM</li>
+            <li>USB-C service, two replaceable LED boards</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Sixty-Forty 25"</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>2× spun aluminum dome halves (60/40)</td><td>$28.00</td></tr>
+          <tr><td>LED ring + puck (CRI ≥95, 1,600 lm)</td><td>$22.00</td></tr>
+          <tr><td>Opal PMMA seam diffuser</td><td>$7.00</td></tr>
+          <tr><td>ESP32-C3 + 100–240V driver, 30 W</td><td>$13.00</td></tr>
+          <tr><td>Magnetic clamps, stem, canopy, hardware</td><td>$24.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$94 / $229</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ STANCE ============ -->
+  <article class="fixture" id="stance">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="36" y1="26" x2="204" y2="26" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="86" y1="26" x2="102" y2="72" stroke-opacity=".6"/>
+        <line x1="154" y1="26" x2="138" y2="72" stroke-opacity=".6"/>
+        <rect x="100" y="72" width="40" height="110" rx="13"/>
+        <line x1="112" y1="86" x2="112" y2="168" stroke="#a78bfa" stroke-opacity=".55" stroke-width="4"/>
+        <line x1="128" y1="86" x2="128" y2="168" stroke="#a78bfa" stroke-opacity=".55" stroke-width="4"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Stance <span class="fixture-orig">after "Stance" · Visual Comfort Signature · cylinder pendant, 16"</span></h3>
+        <div class="price-row"><span class="price-them">$619–$1,199</span><span class="arrow">→</span><span class="price-jc">kit $139</span></div>
+      </div>
+      <p class="fixture-desc">A standing cylinder held in tension — the light stands "on" nothing. JC extrudes the body in <b>anodized aluminum</b> (not a rolled steel seam) with a <b>tool-tensioned stance-rod bridle</b> that self-levels when you spin it, and stays put.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Extruded, anodized aluminum cylinder</b> vs rolled-and-welded steel</li>
+            <li><b>Self-leveling tension bridle</b> — spin to level, no thumb screws</li>
+            <li>Opal diffuser column, <b>UGR &lt; 19</b>, zero-dot view</li>
+            <li>Hang height re-set in seconds without re-wiring</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> twin columns, CRI ≥95, 2700–6500K</li>
+            <li><b>Output:</b> 1,100 lm</li>
+            <li><b>Driver:</b> 100–240V, 20 W, &gt;25 kHz PWM</li>
+            <li>USB-C service, replaceable LED boards</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Stance 16"</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>Extruded aluminum cylinder, anodized</td><td>$16.00</td></tr>
+          <tr><td>Twin LED columns (CRI ≥95, 1,100 lm)</td><td>$12.00</td></tr>
+          <tr><td>Opal diffuser sleeve</td><td>$6.00</td></tr>
+          <tr><td>ESP32-C3 + 100–240V driver, 20 W</td><td>$12.00</td></tr>
+          <tr><td>Stance rods, canopy, hardware</td><td>$10.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$56 / $139</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ TRACE ============ -->
+  <article class="fixture" id="trace">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="36" y1="26" x2="204" y2="26" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <line x1="70" y1="26" x2="70" y2="58" stroke-opacity=".6"/>
+        <line x1="170" y1="26" x2="170" y2="58" stroke-opacity=".6"/>
+        <line x1="44" y1="58" x2="196" y2="58"/>
+        <rect x="68" y="92" width="7" height="72" rx="3.5"/>
+        <rect x="117" y="104" width="7" height="72" rx="3.5"/>
+        <rect x="166" y="92" width="7" height="72" rx="3.5"/>
+        <rect x="63" y="164" width="17" height="5" rx="2" stroke-opacity=".7"/>
+        <rect x="112" y="176" width="17" height="5" rx="2" stroke-opacity=".7"/>
+        <rect x="161" y="164" width="17" height="5" rx="2" stroke-opacity=".7"/>
+        <line x1="71.5" y1="58" x2="71.5" y2="92" stroke-opacity=".6"/>
+        <line x1="120.5" y1="58" x2="120.5" y2="104" stroke-opacity=".6"/>
+        <line x1="169.5" y1="58" x2="169.5" y2="92" stroke-opacity=".6"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Trace <span class="fixture-orig">after "Trace" · Visual Comfort Signature · minimal linear chandelier 60", sconce — "gravity and assembly define the structure"</span></h3>
+        <div class="price-row"><span class="price-them">≈$2,500–$3,500 est.</span><span class="arrow">→</span><span class="price-jc">kit $349</span></div>
+      </div>
+      <p class="fixture-desc">Lighting reduced to its essential frame: a rail, hangers, and suspended rods of light. JC honors the gravity-defined assembly — every joint hangs, nothing is bolted through — and adds a <b>modular segment bus</b>: add a second 60" rail later and it just joins the mesh.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>6063 rail + stainless suspension wires</b>, anodized — tool-free gravity joints</li>
+            <li><b>Modular 48V segment bus</b> — rails daisy-chain into L/U shapes</li>
+            <li>Suspended LED rods in 24" / 36" lengths, hot-swappable</li>
+            <li>Matching wall sconce shares the rod module</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> nRF52840 — modular multi-segment system; BLE provisioning, Matter-over-Thread option, µA-level standby</li>
+            <li><b>LED:</b> 3× rods (1,200 lm ea), CRI ≥95, 2700–6500K</li>
+            <li><b>Output:</b> 3,600 lm (60" 3-rod config)</li>
+            <li><b>PSU:</b> 100–240V → 48V, &gt;25 kHz PWM</li>
+            <li>USB-C service; per-rod presence detection</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Trace 60" (3 rods)</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>6063 aluminum rail, 60", anodized</td><td>$28.00</td></tr>
+          <tr><td>3× suspended LED rods (CRI ≥95)</td><td>$48.00</td></tr>
+          <tr><td>nRF52840 controller + 100–240V PSU</td><td>$18.00</td></tr>
+          <tr><td>Stainless suspension wires + tensioners</td><td>$16.00</td></tr>
+          <tr><td>Brass end caps, joints, canopy</td><td>$20.00</td></tr>
+          <tr><td>PCB, connectors, hardware</td><td>$12.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$142 / $349</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+  <!-- ============ SHIELDED ============ -->
+  <article class="fixture" id="shielded">
+    <div class="fixture-media">
+      <svg viewBox="0 0 240 240" fill="none" stroke="#4cc9f0" stroke-width="2.5" stroke-linecap="round">
+        <line x1="66" y1="30" x2="66" y2="210" stroke="#6b7890" stroke-width="1.5" stroke-dasharray="4 5"/>
+        <rect x="66" y="96" width="16" height="52" rx="2"/>
+        <path d="M 82 98 L 150 82 L 150 110 L 82 124 Z"/>
+        <path d="M 84 132 L 152 200 L 104 200 Z" fill="rgba(76,201,240,.07)" stroke-opacity=".55"/>
+        <circle cx="98" cy="130" r="5" fill="#4cc9f0" stroke="none"/>
+      </svg>
+    </div>
+    <div class="fixture-body">
+      <div class="fixture-head">
+        <h3>JC Shielded <span class="fixture-orig">after "Shielded" · Visual Comfort Signature · shielded ADA wall sconce, 3.7"</span></h3>
+        <div class="price-row"><span class="price-them">≈$399 est.</span><span class="arrow">→</span><span class="price-jc">kit $89</span></div>
+      </div>
+      <p class="fixture-desc">A small architectural workhorse: a solid shield that cuts glare and throws light down the wall. JC machines the shield from <b>solid brass bar</b> — the mass and machining marks are the finish — where the original casts and plates. Same ADA 4" profile, wet-location option.</p>
+      <div class="cols">
+        <div>
+          <h4>JC redesign</h4>
+          <ul>
+            <li><b>Solid machined brass shield</b> vs cast + plated — living finish or lacquered</li>
+            <li>Wet-location gasket option for outdoor piers/soffits</li>
+            <li><b>Zero-lighting-imaging</b> lens: LED die invisible at any angle</li>
+            <li>One-screw faceplate off for relamping</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Electronics</h4>
+          <ul class="specs">
+            <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
+            <li><b>LED:</b> module, CRI ≥95, 2700–6500K</li>
+            <li><b>Output:</b> 500 lm, asymmetric downwash optic</li>
+            <li><b>Driver:</b> 100–240V, 10 W, &gt;25 kHz PWM</li>
+            <li>USB-C service, replaceable LED module</li>
+          </ul>
+        </div>
+      </div>
+      <table class="bom">
+        <thead><tr><th>BOM — JC Shielded</th><th>Est.</th></tr></thead>
+        <tbody>
+          <tr><td>Solid brass shield + wall plate, machined</td><td>$12.00</td></tr>
+          <tr><td>LED module (CRI ≥95, tunable, 500 lm)</td><td>$7.00</td></tr>
+          <tr><td>ESP32-C3 mini + 100–240V driver</td><td>$9.00</td></tr>
+          <tr><td>Gasket, PCB, hardware</td><td>$4.00</td></tr>
+        </tbody>
+        <tfoot><tr><td>DIY BOM / small-batch kit</td><td>≈$32 / $89</td></tr></tfoot>
+      </table>
+    </div>
+  </article>
+
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <p><b>The JC Lighting Collection</b> — fan-made, open reinterpretations of publicly retailed fixture designs. <b>Not affiliated with, endorsed by, or licensed by Visual Comfort &amp; Co. or Peter Bristol.</b> No proprietary CAD, drawings, renderings, or photography from Visual Comfort was used; all descriptions, specifications, estimates, and artwork on this site are original. "JC editions" are functionally equivalent open designs, not copies of copyrighted geometry.</p>
+    <p class="lic">Licenses: firmware <b>Apache-2.0</b> · hardware <b>CERN-OHL-H</b> · documentation <b>CC-BY-SA-4.0</b>. KiCad schematics, enclosure STL/STEP, and JC Light OS firmware land in the <a href="https://github.com/jerbotclaw-max/jc-lighting">repo</a> as each design is released. Prices and specs are estimates for comparison — verify before you build.</p>
+    <p>Sibling projects: <a href="https://jerbotclaw-max.github.io/visionjet/">/visionjet</a> · <a href="https://jerbotclaw-max.github.io/gesturewand/">/gesturewand</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JC Light OS — one firmware for the whole JC Lighting Collection</title>
+<meta name="description" content="JC Light OS: the unified open-source lighting platform behind the JC Lighting Collection. Matter, BLE, WiFi, flicker-free dimming, tunable white + RGBW, replaceable LED boards, anti-obsolescence by design.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%92%A1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">JC <span>Light OS</span></div>
+    <div class="nav-links">
+      <a href="index.html">← The Collection</a>
+      <a href="#stack">Stack</a>
+      <a href="#engine">Light Engine</a>
+      <a href="#profiles">Profiles</a>
+      <a href="#service">Service</a>
+      <a href="https://github.com/jerbotclaw-max/jc-lighting">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="hero-inner">
+    <div class="hero-kicker">● Apache-2.0 · one firmware, twelve fixtures</div>
+    <h1>JC Light OS<br><span class="grad">Every light speaks the same language.</span></h1>
+    <p class="hero-sub">A single open-source firmware and electronics platform runs the entire JC Lighting Collection. Buy one fixture or all twelve — provisioning, scenes, OTA updates, and diagnostics work <strong>identically across the line</strong>. Local-first, cloud-optional, obsolescence-hostile.</p>
+    <div class="stat-grid">
+      <div class="stat"><b>Matter</b><span>over WiFi &amp; Thread</span></div>
+      <div class="stat"><b>BLE</b><span>provisioning + control</span></div>
+      <div class="stat"><b>&gt;25 kHz</b><span>flicker-free PWM</span></div>
+      <div class="stat"><b>Local-first</b><span>no cloud required</span></div>
+      <div class="stat"><b>USB-C</b><span>service on every unit</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="stack">
+  <div class="kicker">Architecture</div>
+  <h2>Two SoCs, one contract</h2>
+  <p class="section-sub">Every fixture meets the same electronics contract — the only design choice per fixture is which radio wins.</p>
+  <div class="os-grid">
+    <div class="os-card">
+      <h3>ESP32-C3 <span class="tag">mains fixtures</span></h3>
+      <p>Single-body, always-powered fixtures: Bend, Dot, Overture, Quarter Sphere, Racetrack, Cymbal, Interlace, Sixty-Forty, Stance, Shielded. RISC-V core, native WiFi + BLE, Matter-over-WiFi, ~$1 at volume. WiFi matters more than µW standby here, so it wins by default.</p>
+      <div>
+        <span class="chip on">WiFi</span><span class="chip on">BLE 5</span><span class="chip on">Matter over WiFi</span><span class="chip">ESP-Touch + SoftAP fallback</span>
+      </div>
+    </div>
+    <div class="os-card">
+      <h3>nRF52840 <span class="tag">multi-body &amp; modular</span></h3>
+      <p>Helium and Trace: many nodes on one low-voltage bus. The nRF52840 brings µA-level standby, the best BLE stack in the business, native USB-C without an external UART, and a Matter-over-Thread path — the right trade when a fixture is a <em>network of lights</em>, not one light.</p>
+      <div>
+        <span class="chip on">BLE 5.4</span><span class="chip on">Matter over Thread</span><span class="chip">802.15.4 mesh option</span><span class="chip">native USB</span>
+      </div>
+    </div>
+    <div class="os-card">
+      <h3>Power <span class="tag">100–240 VAC</span></h3>
+      <p>Every mains fixture runs a universal-input constant-current driver with power-factor &gt;0.9 and PWM dimming above 25 kHz — flicker-free at any dim level, camera-safe, no 120 Hz beat. Multi-body fixtures step down to a 48V DC bus with per-segment fusing.</p>
+      <div>
+        <span class="chip on">100–240 V</span><span class="chip on">PF &gt; 0.9</span><span class="chip on">&lt;1% flicker</span><span class="chip">48V bus (Helium/Trace)</span>
+      </div>
+    </div>
+    <div class="os-card">
+      <h3>Integration <span class="tag">smart home</span></h3>
+      <p>Matter for Apple Home, Google Home, and Alexa. Native Home Assistant discovery over MQTT/mDNS for local control with zero cloud. BLE app for setup, OTA, and factory diagnostics. ESP-Touch/SoftAP provisioning fallback for routers that hate everything.</p>
+      <div>
+        <span class="chip on">Home Assistant</span><span class="chip on">Apple Home</span><span class="chip on">Google Home</span><span class="chip">Alexa</span><span class="chip">REST/mDNS local API</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="engine">
+  <div class="kicker">Light Engine</div>
+  <h2>The part that actually makes light</h2>
+  <p class="section-sub">The light engine is shared verbatim across all twelve profiles; fixtures differ only in channel count and optical profile.</p>
+  <div class="os-grid">
+    <div class="os-card">
+      <h3>CRI ≥ 95, R9 &gt; 50</h3>
+      <p>SunLike-class or Nichia Optisolis-class emitters on every fixture. Skin tones, wood, and food look right — the spec the original collection rarely publishes because it rarely clears 90.</p>
+    </div>
+    <div class="os-card">
+      <h3>2700–6500 K tunable white</h3>
+      <p>Perceptually spaced CCT mixing with duv correction on the black-body locus. Circadian schedules in the firmware, not the hub. RGBW channel option on scene fixtures (Dot, Overture, Helium, Sixty-Forty) for saturated looks.</p>
+    </div>
+    <div class="os-card">
+      <h3>16-bit gamma-correct PWM</h3>
+      <p>&gt;25 kHz carrier, 16-bit duty resolution, and a gamma LUT so the bottom 5% of the dim curve is usable instead of a cliff. No pop-on, no drop-out, no phone-camera bands.</p>
+    </div>
+    <div class="os-card">
+      <h3>50,000 h, thermally honest</h3>
+      <p>LED boards are rated 50k hours at realistic case temps, and the firmware derates — not fails — if a fixture is boxed in. Every thermal event is logged to flash for the next owner.</p>
+    </div>
+    <div class="os-card">
+      <h3>UGR &lt; 19 optics</h3>
+      <p>Opal PMMA/silicone diffusers specified to a unified-glare rating under 19 in the worst case — the difference between "nice fixture" and "I can live under it."</p>
+    </div>
+    <div class="os-card">
+      <h3>Replaceable LED boards</h3>
+      <p>Every emitter lives on a field-replaceable board — pogo-pin carriers, magnetic pucks, or collet-mounted sticks. LED tech improves; your fixture doesn't get discarded when it does.</p>
+    </div>
+  </div>
+</section>
+
+<section id="profiles">
+  <div class="kicker">Profiles</div>
+  <h2>One build, twelve personalities</h2>
+  <p class="section-sub">A fixture profile is a device-tree blob + calibration blob, compiled into the same firmware image. Flash any fixture with any profile; the hardware id-matches at boot.</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>Profile</th><th>Fixture</th><th>SoC</th><th>Channels</th><th>Max output</th><th>Extras</th></tr></thead>
+    <tbody>
+      <tr><td><span class="name">bend-s / -m / -l</span></td><td>JC Bend 8/12/20"</td><td>ESP32-C3</td><td>TW ×1</td><td>450 / 800 / 1,400 lm</td><td>Ambient-light auto-dim (opt. sensor)</td></tr>
+      <tr><td><span class="name">dot-13 / -16 / -22 / swing</span></td><td>JC Dot family</td><td>ESP32-C3</td><td>TW ×1 (+RGBW 16/22)</td><td>1,200–2,600 lm</td><td>Swing lamp: touch dim + presence hold</td></tr>
+      <tr><td><span class="name">overture-s / -m / -xl / lin / sconce</span></td><td>JC Overture family</td><td>ESP32-C3</td><td>TW ×6–12 (RGBW opt.)</td><td>950–2,500 lm</td><td>Per-stick diagnostics, up/downlight scenes</td></tr>
+      <tr><td><span class="name">qsphere</span></td><td>JC Quarter Sphere</td><td>ESP32-C3</td><td>TW ×1</td><td>600 lm</td><td>Wall-wash curve, dusk-to-dawn schedule</td></tr>
+      <tr><td><span class="name">racetrack-28 / -38 / -48</span></td><td>JC Racetrack</td><td>ESP32-C3</td><td>TW ×1</td><td>1,800–4,200 lm</td><td>Flicker-free video mode (extended 16-bit)</td></tr>
+      <tr><td><span class="name">helium-4 … -12</span></td><td>JC Helium</td><td>nRF52840</td><td>TW per globe (RGBW opt.)</td><td>700–5,200 lm</td><td>Per-globe addressing, drift-free cluster scenes</td></tr>
+      <tr><td><span class="name">cymbal</span></td><td>JC Cymbal</td><td>ESP32-C3</td><td>TW ×1</td><td>2,200 lm</td><td>Pendant/sconce auto-detect via jumper</td></tr>
+      <tr><td><span class="name">interlace</span></td><td>JC Interlace</td><td>ESP32-C3</td><td>TW ×3</td><td>900 lm</td><td>Per-ring chases, wave scenes</td></tr>
+      <tr><td><span class="name">sixtyforty</span></td><td>JC Sixty-Forty</td><td>ESP32-C3</td><td>TW ×2 (+RGBW opt.)</td><td>1,600 lm</td><td>Bowl/cap independent or mirrored</td></tr>
+      <tr><td><span class="name">stance</span></td><td>JC Stance</td><td>ESP32-C3</td><td>TW ×2</td><td>1,100 lm</td><td>Twin-column level check at boot</td></tr>
+      <tr><td><span class="name">trace-rail</span></td><td>JC Trace</td><td>nRF52840</td><td>TW per rod</td><td>3,600 lm (3-rod)</td><td>Segment mesh, add-rail discovery, per-rod presence</td></tr>
+      <tr><td><span class="name">shielded</span></td><td>JC Shielded</td><td>ESP32-C3</td><td>TW ×1</td><td>500 lm</td><td>Wet-location heater watch, nightlight floor</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="service">
+  <div class="kicker">Serviceability</div>
+  <h2>Anti-obsolescence, on the record</h2>
+  <div class="os-grid">
+    <div class="os-card">
+      <h3>USB-C on every unit</h3>
+      <p>Serial console, logs, firmware, and factory test over one standard cable. No vendor dongle, no JTAG hunt, no "contact support."</p>
+    </div>
+    <div class="os-card">
+      <h3>Browser flashing</h3>
+      <p>ESP Web Tools / WebUSB flow: plug in, click, flash — even a totally wiped board recovers in a browser tab. Signed OTA for everything else.</p>
+    </div>
+    <div class="os-card">
+      <h3>Everything is a part</h3>
+      <p>LED board, driver board, SoC module, diffuser, and glass are all individually replaceable SKUs with published drawings. Nothing important is potted, welded, or glued.</p>
+    </div>
+    <div class="os-card">
+      <h3>Open by license</h3>
+      <p>Firmware Apache-2.0. Hardware CERN-OHL-H. Documentation CC-BY-SA-4.0. Third-party repair and clone-friendly by explicit license — if we vanish, the lights don't.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <p><b>JC Light OS</b> is part of <a href="index.html">The JC Lighting Collection</a> — fan-made, open reinterpretations of publicly retailed fixture designs. <b>Not affiliated with Visual Comfort &amp; Co. or Peter Bristol.</b> No proprietary CAD, drawings, or imagery used; all descriptions and artwork are original.</p>
+    <p class="lic">Licenses: firmware <b>Apache-2.0</b> · hardware <b>CERN-OHL-H</b> · docs <b>CC-BY-SA-4.0</b>. All specs are design targets, not lab-verified claims.</p>
+    <p>Sibling projects: <a href="https://jerbotclaw-max.github.io/visionjet/">/visionjet</a> · <a href="https://jerbotclaw-max.github.io/gesturewand/">/gesturewand</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
