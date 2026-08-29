@@ -185,6 +185,7 @@ header.hero-photo{position:relative;min-height:92vh;display:flex;align-items:fle
 .hero-photo .hero-inner{position:relative;z-index:2}
 .hero-photo h1,.hero-photo .hero-sub{max-width:660px}
 .hero-photo .stat{background:rgba(13,17,26,.62);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hero-photo .stat span{color:#8d9ab2}
 @media(max-width:900px){
   .hero-photo{min-height:80vh}
   .hero-overlay{background:
