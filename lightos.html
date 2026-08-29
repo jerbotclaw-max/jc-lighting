@@ -37,7 +37,7 @@
       <div class="stat"><b>BLE</b><span>provisioning + control</span></div>
       <div class="stat"><b>&gt;25 kHz</b><span>flicker-free PWM</span></div>
       <div class="stat"><b>Local-first</b><span>no cloud required</span></div>
-      <div class="stat"><b>CRI ≥97</b><span>R9 &gt; 90 · RF ≥90, integrated</span></div><div class="stat"><b>USB-C</b><span>service on every unit</span></div>
+      <div class="stat"><b>CRI ≥97</b><span>R9 &gt; 90 · RF ≥90, integrated</span></div><div class="stat"><b>20k+ lm</b><span>JC Boost modes</span></div><div class="stat"><b>USB-C</b><span>service on every unit</span></div>
     </div>
   </div>
 </header>
@@ -107,6 +107,10 @@
       <h3>Replaceable LED boards</h3>
       <p>Every emitter lives on a field-replaceable board — pogo-pin carriers, magnetic pucks, or collet-mounted sticks. LED tech improves; your fixture doesn't get discarded when it does.</p>
     </div>
+    <div class="os-card">
+      <h3>JC Boost <span class="tag">20k-class modes</span></h3>
+      <p>Firmware-gated multi-emitter overdrive. Where the form factor supports it — Racetrack 48" (20,600 lm), Trace dual-rail (20,400 lm), Helium Gallery config (20,800 lm) — Boost drives parallel emitter arrays with a thermally-budgeted step-down curve, only on fixtures with Boost PSU or 48 V bus headroom. Where physics wins (a 3.7" sconce), the card states the honest max instead of a marketing number.</p>
+    </div>
   </div>
 </section>
 
@@ -118,18 +122,18 @@
   <table class="profiles">
     <thead><tr><th>Profile</th><th>Fixture</th><th>SoC</th><th>Channels</th><th>Max output</th><th>Extras</th></tr></thead>
     <tbody>
-      <tr><td><span class="name">bend-s / -m / -l</span></td><td>JC Bend 8/12/20"</td><td>ESP32-C3</td><td>TW ×1</td><td>450 / 800 / 1,400 lm</td><td>Ambient-light auto-dim (opt. sensor)</td></tr>
-      <tr><td><span class="name">dot-13 / -16 / -22 / swing</span></td><td>JC Dot family</td><td>ESP32-C3</td><td>TW ×1 (+RGBW 16/22)</td><td>1,200–2,600 lm</td><td>Swing lamp: touch dim + presence hold</td></tr>
-      <tr><td><span class="name">overture-s / -m / -xl / lin / sconce</span></td><td>JC Overture family</td><td>ESP32-C3</td><td>TW ×6–12 (RGBW opt.)</td><td>950–2,500 lm</td><td>Per-stick diagnostics, up/downlight scenes</td></tr>
-      <tr><td><span class="name">qsphere</span></td><td>JC Quarter Sphere</td><td>ESP32-C3</td><td>TW ×1</td><td>600 lm</td><td>Wall-wash curve, dusk-to-dawn schedule</td></tr>
-      <tr><td><span class="name">racetrack-28 / -38 / -48</span></td><td>JC Racetrack</td><td>ESP32-C3</td><td>TW ×1</td><td>1,800–4,200 lm</td><td>Flicker-free video mode (extended 16-bit)</td></tr>
-      <tr><td><span class="name">helium-4 … -12</span></td><td>JC Helium</td><td>nRF52840</td><td>TW per globe (RGBW opt.)</td><td>700–5,200 lm</td><td>Per-globe addressing, drift-free cluster scenes</td></tr>
-      <tr><td><span class="name">cymbal</span></td><td>JC Cymbal</td><td>ESP32-C3</td><td>TW ×1</td><td>2,200 lm</td><td>Pendant/sconce auto-detect via jumper</td></tr>
-      <tr><td><span class="name">interlace</span></td><td>JC Interlace</td><td>ESP32-C3</td><td>TW ×3</td><td>900 lm</td><td>Per-ring chases, wave scenes</td></tr>
-      <tr><td><span class="name">sixtyforty</span></td><td>JC Sixty-Forty</td><td>ESP32-C3</td><td>TW ×2 (+RGBW opt.)</td><td>1,600 lm</td><td>Bowl/cap independent or mirrored</td></tr>
-      <tr><td><span class="name">stance</span></td><td>JC Stance</td><td>ESP32-C3</td><td>TW ×2</td><td>1,100 lm</td><td>Twin-column level check at boot</td></tr>
-      <tr><td><span class="name">trace-rail</span></td><td>JC Trace</td><td>nRF52840</td><td>TW per rod</td><td>3,600 lm (3-rod)</td><td>Segment mesh, add-rail discovery, per-rod presence</td></tr>
-      <tr><td><span class="name">shielded</span></td><td>JC Shielded</td><td>ESP32-C3</td><td>TW ×1</td><td>500 lm</td><td>Wet-location heater watch, nightlight floor</td></tr>
+      <tr><td><span class="name">bend-s / -m / -l</span></td><td>JC Bend 8/12/20"</td><td>ESP32-C3</td><td>TW ×1</td><td>450–1,400 lm · Boost 2,150</td><td>Ambient-light auto-dim (opt. sensor)</td></tr>
+      <tr><td><span class="name">dot-13 / -16 / -22 / swing</span></td><td>JC Dot family</td><td>ESP32-C3</td><td>TW ×1 (+RGBW 16/22)</td><td>1,200–2,600 lm · Boost 5,400</td><td>Swing lamp: touch dim + presence hold</td></tr>
+      <tr><td><span class="name">overture-s / -m / -xl / lin / sconce</span></td><td>JC Overture family</td><td>ESP32-C3</td><td>TW ×6–12 (RGBW opt.)</td><td>950–2,500 lm · Boost 7,400</td><td>Per-stick diagnostics, up/downlight scenes</td></tr>
+      <tr><td><span class="name">qsphere</span></td><td>JC Quarter Sphere</td><td>ESP32-C3</td><td>TW ×1</td><td>600 lm · Boost 1,450</td><td>Wall-wash curve, dusk-to-dawn schedule</td></tr>
+      <tr><td><span class="name">racetrack-28 / -38 / -48</span></td><td>JC Racetrack</td><td>ESP32-C3</td><td>TW ×1</td><td>1,800–4,200 lm · Boost 20,600</td><td>Flicker-free video mode (extended 16-bit)</td></tr>
+      <tr><td><span class="name">helium-4 … -12</span></td><td>JC Helium</td><td>nRF52840</td><td>TW per globe (RGBW opt.)</td><td>700–5,200 lm · Boost 9,800 / 20,800 (Gallery)</td><td>Per-globe addressing, drift-free cluster scenes</td></tr>
+      <tr><td><span class="name">cymbal</span></td><td>JC Cymbal</td><td>ESP32-C3</td><td>TW ×1</td><td>2,200 lm · Boost 4,700</td><td>Pendant/sconce auto-detect via jumper</td></tr>
+      <tr><td><span class="name">interlace</span></td><td>JC Interlace</td><td>ESP32-C3</td><td>TW ×3</td><td>900 lm · Boost 1,950</td><td>Per-ring chases, wave scenes</td></tr>
+      <tr><td><span class="name">sixtyforty</span></td><td>JC Sixty-Forty</td><td>ESP32-C3</td><td>TW ×2 (+RGBW opt.)</td><td>1,600 lm · Boost 3,450</td><td>Bowl/cap independent or mirrored</td></tr>
+      <tr><td><span class="name">stance</span></td><td>JC Stance</td><td>ESP32-C3</td><td>TW ×2</td><td>1,100 lm · Boost 2,350</td><td>Twin-column level check at boot</td></tr>
+      <tr><td><span class="name">trace-rail</span></td><td>JC Trace</td><td>nRF52840</td><td>TW per rod</td><td>3,600 lm · Boost 5,150 / 20,400 (dual-rail)</td><td>Segment mesh, add-rail discovery, per-rod presence</td></tr>
+      <tr><td><span class="name">shielded</span></td><td>JC Shielded</td><td>ESP32-C3</td><td>TW ×1</td><td>500 lm · Boost 1,150</td><td>Wet-location heater watch, nightlight floor</td></tr>
     </tbody>
   </table>
   </div>

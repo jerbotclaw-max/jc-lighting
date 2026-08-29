@@ -31,6 +31,7 @@ Open-source reinterpretations of every collection in **Peter Bristol's Visual Co
 - ESP32-C3 (single-body mains fixtures, Matter-over-WiFi) or nRF52840 (multi-body bus fixtures — Helium, Trace; BLE-first, Matter-over-Thread option)
 - BLE provisioning, Matter, Home Assistant, local REST/mDNS API
 - USB-C service port on every unit; replaceable LED boards throughout
+- JC Boost: firmware-gated multi-emitter overdrive — 20,000+ lm on multi-emitter editions (Racetrack 48" Boost 20,600 lm, Trace dual-rail 20,400 lm, Helium Gallery 20,800 lm); honest per-form-factor max + a bigger-edition wink everywhere else
 - Solid brass / machined & extruded aluminum / cast stone + real glass vs original plated steel
 
 ## JC Light OS

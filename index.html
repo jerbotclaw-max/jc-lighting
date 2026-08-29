@@ -37,6 +37,7 @@
       <div class="stat"><b>2700–6500K</b><span>tunable white + RGBW opt.</span></div>
       <div class="stat"><b>50,000 h</b><span>rated LED life</span></div>
       <div class="stat"><b>~85%</b><span>below retail (typ. kit)</span></div>
+      <div class="stat"><b>20k+ lm</b><span>JC Boost on multi-emitter editions</span></div>
     </div>
   </div>
 </header>
@@ -70,7 +71,7 @@
 <section id="lineup">
   <div class="kicker">The Lineup</div>
   <h2>Twelve fixtures, one open platform</h2>
-  <p class="section-sub">Every JC edition ships with the same electronics contract: GetBrighter-class emitters (CRI ≥97, R9 &gt; 90, TM-30 RF ≥90), tunable white 2700–6500K (RGBW where noted), flicker-free &gt;25 kHz PWM dimming — &lt;1% at every level, 0–100% range — from a 100–240V driver, Matter over WiFi (or Thread where noted), BLE provisioning, USB-C service port, and a replaceable LED board. Firmware is one build — <a href="lightos.html">JC Light OS</a> — with a per-fixture profile.</p>
+  <p class="section-sub">Every JC edition ships with the same electronics contract: GetBrighter-class emitters (CRI ≥97, R9 &gt; 90, TM-30 RF ≥90), tunable white 2700–6500K (RGBW where noted), flicker-free &gt;25 kHz PWM dimming — &lt;1% at every level, 0–100% range — from a 100–240V driver, Matter over WiFi (or Thread where noted), BLE provisioning, USB-C service port, and a replaceable LED board. Every fixture ships with <b>JC Boost</b> — firmware-gated multi-emitter overdrive, targeting 20,000+ lm where the form factor can take it. Firmware is one build — <a href="lightos.html">JC Light OS</a> — with a per-fixture profile.</p>
 
   <!-- ============ BEND ============ -->
   <article class="fixture" id="bend">
@@ -104,7 +105,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 — single-body mains fixture; WiFi + BLE, Matter-over-WiFi, ~$1</li>
             <li><b>LED:</b> GetBrighter-class tunable COB — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K</li>
-            <li><b>Output:</b> 450 lm (8") / 800 lm (12") / 1,400 lm (20")</li>
+            <li><b>Max output:</b> 450 / 800 / 1,400 lm · JC Boost 2,150 lm (20") · 20k lm lives in the Bend 96" Wall-Wash edition</li>
             <li><b>Driver:</b> 100–240V, &gt;25 kHz PWM, &lt;1% flicker, 0–100% dimming</li>
             <li>USB-C service, replaceable LED strip module</li>
           </ul>
@@ -159,7 +160,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> 40 mm GetBrighter-class puck — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K. RGBW option (16/22") is honest: ~CRI 92 / R9 ≈ 70 with RGB engine active — default high-CRI tunable-white variant keeps CRI 97</li>
-            <li><b>Output:</b> 1,200 / 1,800 / 2,600 lm by size</li>
+            <li><b>Max output:</b> 1,200 / 1,800 / 2,600 lm · JC Boost 5,400 lm (22") · 20k lm in the Dot Panel (2×4) edition</li>
             <li><b>Driver:</b> 100–240V, &gt;25 kHz PWM, &lt;1% flicker, 0–100% dimming</li>
             <li>USB-C service; puck swap = 4 magnets, no tools</li>
           </ul>
@@ -215,7 +216,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> 6–12 GetBrighter-class sticks — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K. RGBW option trades to ~CRI 92 (R9 ≈ 70); high-CRI tunable-white variant standard</li>
-            <li><b>Output:</b> 950 lm (S) → 2,500 lm (XL ring, matches their 35 W spec)</li>
+            <li><b>Max output:</b> 950 lm (S) → 2,500 lm (XL, matches their 35 W spec) · JC Boost 7,400 lm (XL) · 20k lm in the Overture Grid ceiling edition</li>
             <li><b>Driver:</b> 100–240V, 45–90 W, &gt;25 kHz PWM, 0–100% dimming</li>
             <li>USB-C service; per-stick diagnostics in firmware</li>
           </ul>
@@ -269,7 +270,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> GetBrighter-class uplight board — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K</li>
-            <li><b>Output:</b> 600 lm uplight, wall-wash tuned</li>
+            <li><b>Max output:</b> 600 lm, wall-wash tuned · JC Boost 1,450 lm · 20k lm when you run the JC Cove (continuous Quarter Sphere run)</li>
             <li><b>Driver:</b> 100–240V, &gt;25 kHz PWM, &lt;1% flicker, 0–100% dimming</li>
             <li>USB-C service, replaceable LED board</li>
           </ul>
@@ -322,8 +323,8 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> continuous GetBrighter-class COB — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K</li>
-            <li><b>Output:</b> 1,800 (28") / 3,000 (38") / 4,200 lm (48")</li>
-            <li><b>Driver:</b> 100–240V, 60 W, &gt;25 kHz PWM, 0–100% dimming</li>
+            <li><b>Max output:</b> 1,800 / 3,000 / 4,200 lm · JC Boost 20,600 lm (48", 150 W, thermally-gated) — yes, really</li>
+            <li><b>Driver:</b> 100–240V, 60 W (150 W Boost PSU optional), &gt;25 kHz PWM, &lt;1% flicker, 0–100% dimming</li>
             <li>USB-C service, replaceable LED board</li>
           </ul>
         </div>
@@ -379,7 +380,7 @@
           <ul class="specs">
             <li><b>SoC:</b> nRF52840 — multi-body fixture on a daisy-chained bus; BLE-first, ultra-low standby, Matter-over-Thread option</li>
             <li><b>LED:</b> per-globe GetBrighter-class pucks — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K. RGBW option trades to ~CRI 92 (R9 ≈ 70); high-CRI tunable-white variant standard</li>
-            <li><b>Output:</b> 700 lm (18") → 5,200 lm (53")</li>
+            <li><b>Max output:</b> 700 lm (18") → 5,200 lm (53") · JC Boost 9,800 lm (53") · 12-globe Gallery config: 20,800 lm</li>
             <li><b>PSU:</b> 100–240V → 48V DC, &gt;25 kHz PWM, 0–100% dimming</li>
             <li>USB-C service on canopy + per-bus segment fusing</li>
           </ul>
@@ -435,7 +436,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> GetBrighter-class COB ring — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K</li>
-            <li><b>Output:</b> 2,200 lm (dish ~21")</li>
+            <li><b>Max output:</b> 2,200 lm · JC Boost 4,700 lm · 20k lm in the Cymbal High-Bay edition (we’re serious)</li>
             <li><b>Driver:</b> 100–240V, 30 W, &gt;25 kHz PWM, 0–100% dimming</li>
             <li>USB-C service, replaceable LED ring</li>
           </ul>
@@ -487,7 +488,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> 3× GetBrighter-class COB strips — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K</li>
-            <li><b>Output:</b> 900 lm total</li>
+            <li><b>Max output:</b> 900 lm · JC Boost 1,950 lm · 20k lm = the Interlace Grand (14-ring) edition</li>
             <li><b>Driver:</b> 100–240V, 20 W, &gt;25 kHz PWM, 0–100% dimming</li>
             <li>USB-C service, per-ring connectors</li>
           </ul>
@@ -540,7 +541,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> bowl ring + cap puck, GetBrighter-class — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K. RGBW option trades to ~CRI 92 (R9 ≈ 70); high-CRI tunable-white variant standard</li>
-            <li><b>Output:</b> 1,600 lm (bowl 1,200 + cap 400)</li>
+            <li><b>Max output:</b> 1,600 lm (bowl 1,200 + cap 400) · JC Boost 3,450 lm · 20k lm in the Sixty-Forty XL (48") edition</li>
             <li><b>Driver:</b> 100–240V, 30 W, &gt;25 kHz PWM, 0–100% dimming</li>
             <li>USB-C service, two replaceable LED boards</li>
           </ul>
@@ -593,7 +594,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> twin GetBrighter-class columns — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K</li>
-            <li><b>Output:</b> 1,100 lm</li>
+            <li><b>Max output:</b> 1,100 lm · JC Boost 2,350 lm · 20k lm in the Stance Tower floor edition</li>
             <li><b>Driver:</b> 100–240V, 20 W, &gt;25 kHz PWM, 0–100% dimming</li>
             <li>USB-C service, replaceable LED boards</li>
           </ul>
@@ -653,8 +654,8 @@
           <ul class="specs">
             <li><b>SoC:</b> nRF52840 — modular multi-segment system; BLE provisioning, Matter-over-Thread option, µA-level standby</li>
             <li><b>LED:</b> 3× rods (1,200 lm ea), GetBrighter-class — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K</li>
-            <li><b>Output:</b> 3,600 lm (60" 3-rod config)</li>
-            <li><b>PSU:</b> 100–240V → 48V, &gt;25 kHz PWM, 0–100% dimming</li>
+            <li><b>Max output:</b> 3,600 lm (3-rod) · JC Boost 5,150 lm (overdrive) · dual-rail 6-rod config: 20,400 lm</li>
+            <li><b>PSU:</b> 100–240V → 48V (300 W Boost PSU optional), &gt;25 kHz PWM, 0–100% dimming</li>
             <li>USB-C service; per-rod presence detection</li>
           </ul>
         </div>
@@ -706,7 +707,7 @@
           <ul class="specs">
             <li><b>SoC:</b> ESP32-C3 (WiFi + BLE, Matter-over-WiFi)</li>
             <li><b>LED:</b> GetBrighter-class module — CRI 97, R9 &gt; 90, TM-30 RF ≥90 — 2700–6500K</li>
-            <li><b>Output:</b> 500 lm, asymmetric downwash optic</li>
+            <li><b>Max output:</b> 500 lm, asymmetric downwash optic · JC Boost 1,150 lm · 20k lm in the Shielded Cove run edition</li>
             <li><b>Driver:</b> 100–240V, 10 W, &gt;25 kHz PWM, 0–100% dimming</li>
             <li>USB-C service, replaceable LED module</li>
           </ul>
